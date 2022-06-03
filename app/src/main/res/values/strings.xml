@@ -1,6 +1,16 @@
 <resources>
     <string name="app_name">Guia MG</string>
     <string name="title_home">Home</string>
+    <string name="title_add_client">Adicionar Cliente</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+    <string name="add_client_field_category_hint">Categoria</string>
+    <string name="add_client_field_name_hint">Nome</string>
+    <string name="add_client_field_address_hint">Endereço</string>
+    <string name="add_client_field_phone_hint">Telefone</string>
+    <string name="add_client_field_link_instagran_hint">Link Instagram</string>
+    <string name="add_client_field_link_facebook_hint">Link Facebook</string>
+    <string name="add_client_field_link_maps_hint">Link Maps</string>
+    <string name="add_client_field_description_hint">Descrição</string>
+    <string name="button_save">SALVAR</string>
 </resources>

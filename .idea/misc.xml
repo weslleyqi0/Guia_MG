@@ -12,7 +12,16 @@
         <entry key="..\:/_Projects/GuiaMG/app/src/guiaClient/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1815" />
         <entry key="..\:/_Projects/GuiaMG/app/src/guiaClient/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.1815" />
         <entry key="..\:/_Projects/GuiaMG/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1815" />
+        <entry key="..\:/_Projects/GuiaMG/app/src/main/res/drawable/background_product_image.xml" value="0.157" />
+        <entry key="..\:/_Projects/GuiaMG/app/src/main/res/drawable/background_product_image_error.xml" value="0.1635" />
+        <entry key="..\:/_Projects/GuiaMG/app/src/main/res/drawable/background_product_item.xml" value="0.1635" />
+        <entry key="..\:/_Projects/GuiaMG/app/src/main/res/drawable/bg_button.xml" value="0.1895" />
+        <entry key="..\:/_Projects/GuiaMG/app/src/main/res/drawable/ic_add_a_photo.xml" value="0.1895" />
+        <entry key="..\:/_Projects/GuiaMG/app/src/main/res/drawable/ic_plus.xml" value="0.1895" />
         <entry key="..\:/_Projects/GuiaMG/app/src/main/res/layout/activity_main.xml" value="0.2935185185185185" />
+        <entry key="..\:/_Projects/GuiaMG/app/src/main/res/layout/fragment_add_client.xml" value="0.2" />
+        <entry key="..\:/_Projects/GuiaMG/app/src/main/res/layout/fragment_dashboard.xml" value="0.2997007268063275" />
+        <entry key="..\:/_Projects/GuiaMG/app/src/main/res/menu/bottom_nav_menu.xml" value="0.2997007268063275" />
       </map>
     </option>
   </component>

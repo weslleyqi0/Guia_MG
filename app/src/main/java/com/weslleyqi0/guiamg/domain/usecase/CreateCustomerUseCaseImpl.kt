@@ -12,7 +12,6 @@ class CreateCustomerUseCaseImpl @Inject constructor(
 ) : CreateCustomerUseCase {
     override suspend fun invoke(customer: Customer, imageUri: Uri): Customer {
         return try {
-            val customerUUID = UUID.randomUUID().toString()
             val imageUrl = uploadCustomerImageUseCase(customer.id, imageUri)
             customer.mainImage = imageUrl
             customerRepository.createCustomer(customer)

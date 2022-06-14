@@ -41,7 +41,6 @@ class FirebaseCustomerDataSource @Inject constructor(
 
     override suspend fun uploadCustomerImage(customerUUID: String, imageUri: Uri): String {
         return suspendCoroutine { continuation ->
-            val randomKey = UUID.randomUUID()
             val childReference = storageReference.child(STORAGE_IMAGES).child(COLLECTION_CUSTOMER)
                 .child(customerUUID).child(customerUUID)
 

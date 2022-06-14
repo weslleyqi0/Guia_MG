@@ -2,11 +2,13 @@ package com.weslleyqi0.guiamg.ui.addcustomer
 
 import android.net.Uri
 import android.os.Bundle
+import android.telephony.PhoneNumberFormattingTextWatcher
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.viewModels
 import com.canhub.cropper.CropImageContract
 import com.canhub.cropper.CropImageView
@@ -74,31 +76,36 @@ class AddCustomerFragment : Fragment() {
     }
 
     private fun setListeners() {
-        binding.imageCustomer.setOnClickListener {
-            chooseImage()
-        }
 
-        binding.buttonSaveCustomer.setOnClickListener {
-            val name = binding.edtAddCustomerName.text.toString()
-            val description = binding.edtAddCustomerDescription.text.toString()
-            val address = binding.edtAddCustomerAddress.text.toString()
-            val phone = binding.edtAddCustomerPhone.text.toString()
-            val category = binding.edtAddCustomerCategory.text.toString()
-            val instagramLink = binding.edtAddCustomerLinkInstagram.text.toString()
-            val facebookLink = binding.edtAddCustomerLinkFacebook.text.toString()
-            val mapsLink = binding.edtAddCustomerLinkMaps.text.toString()
+        with(binding){
+            imageCustomer.setOnClickListener {
+                chooseImage()
+            }
 
-            viewModel.createCustomer(
-                imageCustomerUri,
-                name,
-                address,
-                phone,
-                instagramLink,
-                facebookLink,
-                mapsLink,
-                description,
-                category
-            )
+            edtAddCustomerPhone.addTextChangedListener(PhoneNumberFormattingTextWatcher())
+
+            buttonSaveCustomer.setOnClickListener {
+                val name = binding.edtAddCustomerName.text.toString()
+                val description = binding.edtAddCustomerDescription.text.toString()
+                val address = binding.edtAddCustomerAddress.text.toString()
+                val phone = binding.edtAddCustomerPhone.text.toString()
+                val category = binding.edtAddCustomerCategory.text.toString()
+                val instagramLink = binding.edtAddCustomerLinkInstagram.text.toString()
+                val facebookLink = binding.edtAddCustomerLinkFacebook.text.toString()
+                val mapsLink = binding.edtAddCustomerLinkMaps.text.toString()
+
+                viewModel.createCustomer(
+                    imageCustomerUri,
+                    name,
+                    address,
+                    phone,
+                    instagramLink,
+                    facebookLink,
+                    mapsLink,
+                    description,
+                    category
+                )
+            }
         }
     }
 

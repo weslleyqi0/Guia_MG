@@ -65,8 +65,6 @@ class AddCustomerViewModel @Inject constructor(
 
         if (isFormValid) {
             try {
-                //val product = createProductUseCase(description, price.fromCurrency(), imageUri!!)
-                //_productCreated.value = product
                 val keyUUID = UUID.randomUUID().toString()
 
                 val customer = Customer(

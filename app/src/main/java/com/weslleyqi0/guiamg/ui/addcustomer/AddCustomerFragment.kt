@@ -3,18 +3,22 @@ package com.weslleyqi0.guiamg.ui.addcustomer
 import android.net.Uri
 import android.os.Bundle
 import android.telephony.PhoneNumberFormattingTextWatcher
+import android.text.Editable
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.viewModels
+import com.afollestad.materialdialogs.MaterialDialog
+import com.afollestad.materialdialogs.list.listItemsMultiChoice
 import com.canhub.cropper.CropImageContract
 import com.canhub.cropper.CropImageView
 import com.canhub.cropper.options
 import com.google.android.material.textfield.TextInputLayout
+import com.weslleyqi0.guiamg.R
 import com.weslleyqi0.guiamg.databinding.FragmentAddCustomerBinding
+import com.weslleyqi0.guiamg.ui.dashboard.DashboardViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -26,6 +30,8 @@ class AddCustomerFragment : Fragment() {
     private val viewModel: AddCustomerViewModel by viewModels()
 
     private var imageCustomerUri: Uri? = null
+
+    private var categories = listOf("")
 
     private val getContent =
         registerForActivityResult(ActivityResultContracts.GetContent()) { uri ->
@@ -84,12 +90,16 @@ class AddCustomerFragment : Fragment() {
 
             edtAddCustomerPhone.addTextChangedListener(PhoneNumberFormattingTextWatcher())
 
+            edtAddCustomerCategory.setOnClickListener {
+                chooseCategories()
+            }
+
             buttonSaveCustomer.setOnClickListener {
                 val name = binding.edtAddCustomerName.text.toString()
                 val description = binding.edtAddCustomerDescription.text.toString()
                 val address = binding.edtAddCustomerAddress.text.toString()
                 val phone = binding.edtAddCustomerPhone.text.toString()
-                val category = binding.edtAddCustomerCategory.text.toString()
+                //val category = binding.edtAddCustomerCategory.text.toString()
                 val instagramLink = binding.edtAddCustomerLinkInstagram.text.toString()
                 val facebookLink = binding.edtAddCustomerLinkFacebook.text.toString()
                 val mapsLink = binding.edtAddCustomerLinkMaps.text.toString()
@@ -103,7 +113,7 @@ class AddCustomerFragment : Fragment() {
                     facebookLink,
                     mapsLink,
                     description,
-                    category
+                    categories
                 )
             }
         }
@@ -129,6 +139,22 @@ class AddCustomerFragment : Fragment() {
 
     private fun chooseImage0() {
         getContent.launch("image/*")
+    }
+
+    private fun chooseCategories(){
+        val myItems = listOf("Artesanato", "Padaria", "Pizzaria", "Sorveteria", "Lamchonete", "Pintura")
+
+        MaterialDialog(requireContext()).show {
+            //title(text = "Categorias")
+            title(text = getString(R.string.title_choose_three_categories))
+            listItemsMultiChoice(items = myItems){ _, index, text ->
+                categories = text.map { it.toString() }
+                binding.edtAddCustomerCategory.text =
+                    Editable.Factory.getInstance().newEditable(text.toString())
+            }
+
+            positiveButton(R.string.select)
+        }
     }
 
     private fun TextInputLayout.setError(stringResId: Int?) {

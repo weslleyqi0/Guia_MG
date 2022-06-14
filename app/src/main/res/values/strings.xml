@@ -14,4 +14,6 @@
     <string name="add_customer_field_description_hint">Descrição</string>
     <string name="button_save">SALVAR</string>
     <string name="add_customer_field_error">Campo não deve estar vazio!</string>
+    <string name="select">Selecionar</string>
+    <string name="title_choose_three_categories">Escolha três categorias:</string>
 </resources>

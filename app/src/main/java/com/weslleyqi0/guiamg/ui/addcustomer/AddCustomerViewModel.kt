@@ -13,6 +13,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import java.util.*
 import javax.inject.Inject
+import kotlin.collections.ArrayList
 
 @HiltViewModel
 class AddCustomerViewModel @Inject constructor(
@@ -51,8 +52,8 @@ class AddCustomerViewModel @Inject constructor(
         facebookLink: String,
         mapsLink: String,
         description: String,
-        category: String,
-    ) = viewModelScope.launch{
+        categories: List<String>,
+    ) = viewModelScope.launch {
 
         isFormValid = true
 
@@ -61,7 +62,7 @@ class AddCustomerViewModel @Inject constructor(
         _descriptionFieldErrorResId.value = getErrorStringResIdIfEmpty(description)
         _addressFieldErrorResId.value = getErrorStringResIdIfEmpty(address)
         _phoneFieldErrorResId.value = getErrorStringResIdIfEmpty(phone)
-        _categoryFieldErrorResId.value = getErrorStringResIdIfEmpty(category)
+        _categoryFieldErrorResId.value = getErrorStringResIdIfEmpty(categories[0])
 
         if (isFormValid) {
             try {
@@ -72,7 +73,7 @@ class AddCustomerViewModel @Inject constructor(
                     name = name,
                     description = description,
                     address = address,
-                    categories = arrayListOf(category),
+                    categories = categories,
                     phone = phone,
                     instagramLink = instagramLink,
                     facebookLink = facebookLink,

@@ -131,7 +131,6 @@
                     style="@style/TextInputLayoutEditText"
                     android:clickable="true"
                     android:focusable="false"
-                    android:text="Padaria"
                     android:hint="@string/add_customer_field_category_hint"
                     tools:ignore="KeyboardInaccessibleWidget" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -198,6 +197,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
+                android:visibility="gone"
                 app:layout_constraintTop_toBottomOf="@+id/input_layout_add_customer_link_maps"
                 tools:layout_editor_absoluteX="16dp">
 

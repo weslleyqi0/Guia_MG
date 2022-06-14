@@ -10,7 +10,7 @@ data class Customer(
     var name: String = "",
     var description: String = "",
     var address: String = "",
-    var categories: ArrayList<String> = arrayListOf(),
+    var categories: List<String> = arrayListOf(),
     var phone: String = "",
     @get:PropertyName("instagram_link")
     @set:PropertyName("instagram_link")

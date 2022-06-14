@@ -98,6 +98,9 @@ dependencies {
     //Android Image Cropper
     implementation 'com.github.CanHub:Android-Image-Cropper:3.2.2'
 
+    //Material Dialogs
+    implementation 'com.afollestad.material-dialogs:core:3.3.0'
+
 }
 
 kapt {

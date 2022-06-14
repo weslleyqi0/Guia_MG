@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/navigation_add_client"
-        android:name="com.weslleyqi0.guiamg.ui.addclient.AddClientFragment"
+        android:name="com.weslleyqi0.guiamg.ui.addcustomer.AddCustomerFragment"
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home" />
 

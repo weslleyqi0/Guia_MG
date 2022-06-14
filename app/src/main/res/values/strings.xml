@@ -4,13 +4,14 @@
     <string name="title_add_client">Adicionar Cliente</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
-    <string name="add_client_field_category_hint">Categoria</string>
-    <string name="add_client_field_name_hint">Nome</string>
-    <string name="add_client_field_address_hint">Endereço</string>
-    <string name="add_client_field_phone_hint">Telefone</string>
-    <string name="add_client_field_link_instagran_hint">Link Instagram</string>
-    <string name="add_client_field_link_facebook_hint">Link Facebook</string>
-    <string name="add_client_field_link_maps_hint">Link Maps</string>
-    <string name="add_client_field_description_hint">Descrição</string>
+    <string name="add_customer_field_category_hint">Categoria</string>
+    <string name="add_customer_field_name_hint">Nome</string>
+    <string name="add_customer_field_address_hint">Endereço</string>
+    <string name="add_customer_field_phone_hint">Telefone</string>
+    <string name="add_customer_field_link_instagran_hint">Link Instagram</string>
+    <string name="add_customer_field_link_facebook_hint">Link Facebook</string>
+    <string name="add_customer_field_link_maps_hint">Link Maps</string>
+    <string name="add_customer_field_description_hint">Descrição</string>
     <string name="button_save">SALVAR</string>
+    <string name="add_customer_field_error">Campo não deve estar vazio!</string>
 </resources>

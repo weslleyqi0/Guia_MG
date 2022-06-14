@@ -3,46 +3,46 @@ package com.weslleyqi0.guiamg.data
 import android.net.Uri
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
-import com.weslleyqi0.guiamg.domain.model.Client
-import com.weslleyqi0.guiamg.util.COLLECTION_CLIENTS
+import com.weslleyqi0.guiamg.domain.model.Customer
+import com.weslleyqi0.guiamg.util.COLLECTION_CUSTOMER
 import com.weslleyqi0.guiamg.util.COLLECTION_DATA
 import com.weslleyqi0.guiamg.util.STORAGE_IMAGES
 import java.util.*
 import kotlin.coroutines.suspendCoroutine
 
-class FirebaseClientDataSource(
+class FirebaseCustomerDataSource(
     firebaseDatabase: FirebaseDatabase,
     firebaseStorage: FirebaseStorage
-) : ClientDataSource {
+) : CustomerDataSource {
 
-    private val clientReference  = firebaseDatabase.reference
-        .child(COLLECTION_DATA).child(COLLECTION_CLIENTS)
+    private val customerReference  = firebaseDatabase.reference
+        .child(COLLECTION_DATA).child(COLLECTION_CUSTOMER)
 
     private val storageReference = firebaseStorage.reference
 
-    override suspend fun getClients(): List<Client> {
+    override suspend fun getCustomer(): List<Customer> {
         return suspendCoroutine { continuation ->
-            clientReference.get().addOnSuccessListener { dataSnapshot ->
-                val clients = mutableListOf<Client>()
+            customerReference.get().addOnSuccessListener { dataSnapshot ->
+                val customers = mutableListOf<Customer>()
                 for (snapshot in dataSnapshot.children) {
-                    val client = snapshot.getValue(Client::class.java)
-                    client?.let {
-                        clients.add(it)
+                    val customer = snapshot.getValue(Customer::class.java)
+                    customer?.let {
+                        customers.add(it)
                     }
                 }
-                continuation.resumeWith(Result.success(clients))
+                continuation.resumeWith(Result.success(customers))
             }
-            clientReference.get().addOnFailureListener { exception ->
+            customerReference.get().addOnFailureListener { exception ->
                 continuation.resumeWith(Result.failure(exception))
             }
         }
     }
 
-    override suspend fun uploadClientImage( clientUUID: String, imageUri: Uri): String {
+    override suspend fun uploadCustomerImage(customerUUID: String, imageUri: Uri): String {
         return suspendCoroutine { continuation ->
             val randomKey = UUID.randomUUID()
-            val childReference = storageReference.child(STORAGE_IMAGES).child(COLLECTION_CLIENTS)
-                .child(clientUUID).child(randomKey.toString())
+            val childReference = storageReference.child(STORAGE_IMAGES).child(COLLECTION_CUSTOMER)
+                .child(customerUUID).child(customerUUID)
 
             childReference.putFile(imageUri)
                 .addOnSuccessListener { taskSnapshot ->
@@ -57,11 +57,11 @@ class FirebaseClientDataSource(
         }
     }
 
-    override suspend fun createClient(client: Client): Client {
+    override suspend fun createCustomer(customer: Customer): Customer {
         return suspendCoroutine { continuation ->
-                clientReference.child(client.id).setValue(client)
+                customerReference.child(customer.id).setValue(customer)
                     .addOnSuccessListener {
-                        continuation.resumeWith(Result.success(client))
+                        continuation.resumeWith(Result.success(customer))
                     }.addOnFailureListener { exception ->
                         continuation.resumeWith(Result.failure(exception))
                     }

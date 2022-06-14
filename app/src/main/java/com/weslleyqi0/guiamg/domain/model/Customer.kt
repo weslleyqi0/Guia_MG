@@ -5,10 +5,11 @@ import com.google.firebase.database.PropertyName
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
-data class Client(
+data class Customer(
     val id: String = "",
     var name: String = "",
     var description: String = "",
+    var address: String = "",
     var categories: ArrayList<String> = arrayListOf(),
     var phone: String = "",
     @get:PropertyName("instagram_link")

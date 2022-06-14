@@ -2,10 +2,13 @@ package com.weslleyqi0.guiamg.data
 
 import android.net.Uri
 import com.weslleyqi0.guiamg.domain.model.Customer
+import javax.inject.Inject
 
-class CustomerRepository(private val dataSource: CustomerDataSource) {
+class CustomerRepository @Inject constructor(
+    private val dataSource: CustomerDataSource)
+{
 
-    suspend fun getCustomer() : List<Customer> = dataSource.getCustomer()
+    suspend fun getCustomers() : List<Customer> = dataSource.getCustomers()
 
     suspend fun uploadCustomerImage(customerUUID: String, imageUri: Uri) : String = dataSource.uploadCustomerImage(customerUUID, imageUri)
 

@@ -131,6 +131,7 @@
                     style="@style/TextInputLayoutEditText"
                     android:clickable="true"
                     android:focusable="false"
+                    android:text="Padaria"
                     android:hint="@string/add_customer_field_category_hint"
                     tools:ignore="KeyboardInaccessibleWidget" />
             </com.google.android.material.textfield.TextInputLayout>

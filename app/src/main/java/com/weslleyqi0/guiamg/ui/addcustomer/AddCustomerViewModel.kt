@@ -39,6 +39,9 @@ class AddCustomerViewModel @Inject constructor(
     private val _categoryFieldErrorResId = MutableLiveData<Int?>()
     val categoryFieldErrorResId: LiveData<Int?> = _categoryFieldErrorResId
 
+    private val _customerCreated = MutableLiveData<Customer>()
+    val customerCreated: LiveData<Customer> = _customerCreated
+
     fun createCustomer(
         imageUri: Uri?,
         name: String,
@@ -81,6 +84,10 @@ class AddCustomerViewModel @Inject constructor(
                     highlighted = false,
                     imagesList = arrayListOf()
                 )
+
+                val customerResult = createCustomerUseCase(customer, imageUri!!)
+                _customerCreated.value = customerResult
+
                 Log.d("CreateCustomer--->", "OK")
             } catch (e: Exception) {
                 Log.d("CreateCustomer--->", e.toString())

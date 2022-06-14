@@ -8,9 +8,10 @@ import com.weslleyqi0.guiamg.util.COLLECTION_CUSTOMER
 import com.weslleyqi0.guiamg.util.COLLECTION_DATA
 import com.weslleyqi0.guiamg.util.STORAGE_IMAGES
 import java.util.*
+import javax.inject.Inject
 import kotlin.coroutines.suspendCoroutine
 
-class FirebaseCustomerDataSource(
+class FirebaseCustomerDataSource @Inject constructor(
     firebaseDatabase: FirebaseDatabase,
     firebaseStorage: FirebaseStorage
 ) : CustomerDataSource {
@@ -20,7 +21,7 @@ class FirebaseCustomerDataSource(
 
     private val storageReference = firebaseStorage.reference
 
-    override suspend fun getCustomer(): List<Customer> {
+    override suspend fun getCustomers(): List<Customer> {
         return suspendCoroutine { continuation ->
             customerReference.get().addOnSuccessListener { dataSnapshot ->
                 val customers = mutableListOf<Customer>()

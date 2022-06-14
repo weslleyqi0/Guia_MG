@@ -4,10 +4,10 @@ import com.weslleyqi0.guiamg.data.CustomerRepository
 import com.weslleyqi0.guiamg.domain.model.Customer
 import javax.inject.Inject
 
-class GetCustomerUseCaseImpl @Inject constructor(
+class GetCustomersUseCaseImpl @Inject constructor(
     private val customerRepository: CustomerRepository
-) : GetCustomerUseCase {
+) : GetCustomersUseCase {
     override suspend fun invoke(): List<Customer> {
-        return customerRepository.getCustomer()
+        return customerRepository.getCustomers()
     }
 }

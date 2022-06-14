@@ -5,7 +5,7 @@ import com.weslleyqi0.guiamg.domain.model.Customer
 
 interface CustomerDataSource {
 
-    suspend fun getCustomer() : List<Customer>
+    suspend fun getCustomers() : List<Customer>
 
     suspend fun uploadCustomerImage(customerUUID: String, imageUri: Uri) : String
 

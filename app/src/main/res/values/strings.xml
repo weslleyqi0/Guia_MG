@@ -16,4 +16,7 @@
     <string name="add_customer_field_error">Campo não deve estar vazio!</string>
     <string name="select">Selecionar</string>
     <string name="title_choose_three_categories">Escolha três categorias:</string>
+    <string name="title_about">Sobre</string>
+    <string name="txt_app_about">App Feito para estudos, com objetivo de fixação e aprimoramento dos conhecimentos adiquiridos no curso White Label ministrado pelo profesor Douglas Motta</string>
+    <string name="txt_github_link">https://github.com/weslleyqi0</string>
 </resources>

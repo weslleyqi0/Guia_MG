@@ -31,6 +31,12 @@
         <entry key="..\:/_Projects/GuiaMG/app/src/main/res/layout/fragment_add_customer.xml" value="0.2997007268063275" />
         <entry key="..\:/_Projects/GuiaMG/app/src/main/res/layout/fragment_dashboard.xml" value="0.2997007268063275" />
         <entry key="..\:/_Projects/GuiaMG/app/src/main/res/menu/bottom_nav_menu.xml" value="0.2997007268063275" />
+        <entry key="..\:/_Projects/Guia_MG/app/src/guiaAdmin/res/drawable-v31/ic_launcher_foreground.xml" value="0.1635" />
+        <entry key="..\:/_Projects/Guia_MG/app/src/main/res/drawable-night/ic_github.xml" value="0.1635" />
+        <entry key="..\:/_Projects/Guia_MG/app/src/main/res/drawable/ic_github.xml" value="0.1635" />
+        <entry key="..\:/_Projects/Guia_MG/app/src/main/res/drawable/nav_home_selector.xml" value="0.1635" />
+        <entry key="..\:/_Projects/Guia_MG/app/src/main/res/layout/fragment_about.xml" value="0.33" />
+        <entry key="..\:/_Projects/Guia_MG/app/src/main/res/menu/bottom_nav_menu.xml" value="0.3651041666666667" />
       </map>
     </option>
   </component>

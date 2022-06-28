@@ -9,28 +9,19 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.weslleyqi0.guiamg.BuildConfig
 import com.weslleyqi0.guiamg.databinding.FragmentAboutBinding
+import com.weslleyqi0.guiamg.ui.BaseFragment
+import com.weslleyqi0.guiamg.util.URL_GITHUB
 
 
-class AboutFragment : Fragment() {
+class AboutFragment : BaseFragment<FragmentAboutBinding>() {
 
-    private var _binding: FragmentAboutBinding? = null
-    private val binding get() = _binding!!
+    override fun getViewBinding(): FragmentAboutBinding = FragmentAboutBinding.inflate(layoutInflater)
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        _binding = FragmentAboutBinding.inflate(inflater, container, false)
-        return binding.root
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
+    override fun initializeUi() {
         binding.txtVersionName.text = getVersionName()
 
         binding.txtGithubLink.setOnClickListener {
-            val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/weslleyqi0"))
+            val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(URL_GITHUB))
             startActivity(browserIntent)
         }
     }

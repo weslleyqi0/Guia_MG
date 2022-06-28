@@ -18,14 +18,12 @@ import com.canhub.cropper.options
 import com.google.android.material.textfield.TextInputLayout
 import com.weslleyqi0.guiamg.R
 import com.weslleyqi0.guiamg.databinding.FragmentAddCustomerBinding
+import com.weslleyqi0.guiamg.ui.BaseFragment
 import com.weslleyqi0.guiamg.ui.dashboard.DashboardViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class AddCustomerFragment : Fragment() {
-
-    private var _binding: FragmentAddCustomerBinding? = null
-    private val binding get() = _binding!!
+class AddCustomerFragment : BaseFragment<FragmentAddCustomerBinding>() {
 
     private val viewModel: AddCustomerViewModel by viewModels()
 
@@ -39,17 +37,9 @@ class AddCustomerFragment : Fragment() {
             binding.imageCustomer.setImageURI(uri)
         }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        _binding = FragmentAddCustomerBinding.inflate(inflater, container, false)
-        return binding.root
-    }
+    override fun getViewBinding(): FragmentAddCustomerBinding = FragmentAddCustomerBinding.inflate(layoutInflater)
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
+    override fun initializeUi() {
         observeVMEvents()
         setListeners()
     }
@@ -82,7 +72,6 @@ class AddCustomerFragment : Fragment() {
     }
 
     private fun setListeners() {
-
         with(binding){
             imageCustomer.setOnClickListener {
                 chooseImage()
@@ -162,10 +151,4 @@ class AddCustomerFragment : Fragment() {
             getString(stringResId)
         } else null
     }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
-    }
-
 }
